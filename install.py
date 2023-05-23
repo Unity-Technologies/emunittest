@@ -238,7 +238,7 @@ def main():
     'BoatAttack_2020.2.4',
     'BoatAttack_2021.2',
     'Dragon Crashers_20210429_121455_wasm_release_profiling'
-  ];
+  ]
   for t in tests:
     # Remove old installed tests from root directory (if any existed using the old structure)
     if os.path.isdir(os.path.join(ROOT, t)):
