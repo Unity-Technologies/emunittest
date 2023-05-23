@@ -245,7 +245,7 @@ def main():
       shutil.rmtree(os.path.join(ROOT, t))
 
     # Install new tests to demos/ directory
-    url = 'http://clb.confined.space/emunittest_unity/' + t + '.zip'
+    url = f'http://clb.confined.space/emunittest_unity/{t}.zip'
     download_and_unzip(url, os.path.join(ROOT, 'demos', t))
 
 if __name__ == '__main__':
