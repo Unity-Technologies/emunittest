@@ -4,11 +4,10 @@ from __future__ import print_function
 import copy, errno, json, multiprocessing, os, os.path, platform, re, shutil, stat, subprocess, sys, tempfile, zipfile
 
 if sys.version_info >= (3,):
-  from urllib.parse import quote, urljoin
+  from urllib.parse import quote
   from urllib.request import urlopen
   import functools
 else:
-  from urlparse import urljoin
   from urllib import quote
   from urllib2 import urlopen
 
