@@ -4,11 +4,12 @@ from __future__ import print_function
 import copy, errno, json, multiprocessing, os, os.path, platform, re, shutil, stat, subprocess, sys, tempfile, zipfile
 
 if sys.version_info >= (3,):
-  from urllib.parse import urljoin
+  from urllib.parse import quote, urljoin
   from urllib.request import urlopen
   import functools
 else:
   from urlparse import urljoin
+  from urllib import quote
   from urllib2 import urlopen
 
 ROOT = os.path.dirname(os.path.realpath(__file__))
@@ -245,7 +246,7 @@ def main():
       shutil.rmtree(os.path.join(ROOT, t))
 
     # Install new tests to demos/ directory
-    url = f'http://clb.confined.space/emunittest_unity/{t}.zip'
+    url = f'http://clb.confined.space/emunittest_unity/{quote(t)}.zip'
     download_and_unzip(url, os.path.join(ROOT, 'demos', t))
 
 if __name__ == '__main__':
