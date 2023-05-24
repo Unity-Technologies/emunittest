@@ -32,6 +32,8 @@ The result data that emunittest provides looks something like this
 
 # Installation
 
+Prerequisite: a Python 3 interpreter on the `PATH`
+
 To install the suite for local use, run
 
 ```
