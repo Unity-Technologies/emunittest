@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-from __future__ import print_function
 
 import errno, os, os.path, shutil, stat, sys, zipfile
 from urllib.parse import quote
