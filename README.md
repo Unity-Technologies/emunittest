@@ -27,7 +27,7 @@ The result data that emunittest provides looks something like this
  2020-10-27 10:59 | LWRPTemplate-2019-09-19               |                       6836ms |104.52 |   3566ms |    (not tracked) |    (not tracked) |   11.86% |      1818.85ms |                  6 |     260.5MB
  2020-10-27 10:59 | Microgame - Kart-2019-07-25           |                      18888ms |119.61 |  11037ms |    (not tracked) |    (not tracked) |   31.48% |      1950.83ms |                 13 |     330.3MB
  2020-10-27 11:00 | BoatAttack-2019-07-22                 |                      43921ms | 51.81 |  37067ms |    (not tracked) |    (not tracked) |    2.62% |      5093.16ms |                 22 |     667.2MB
-                  |                                       |                              |       |          |                  |          |                |                    |            
+                  |                                       |                              |       |          |                  |          |                |                    |
 ```
 
 # Installation
