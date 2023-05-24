@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
 from __future__ import print_function
 
-import copy, errno, json, multiprocessing, os, os.path, platform, re, shutil, stat, subprocess, sys, tempfile, zipfile
+import errno, os, os.path, shutil, stat, sys, zipfile
 from urllib.parse import quote
 from urllib.request import urlopen
-import functools
 
 ROOT = os.path.dirname(os.path.realpath(__file__))
 TTY_OUTPUT = sys.stdout.isatty()
