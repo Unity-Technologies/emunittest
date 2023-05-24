@@ -39,7 +39,7 @@ To install the suite for local use, run
 ```
 git clone https://github.com/Unity-Technologies/emunittest.git
 cd emunittest
-python install.py
+python install.py # or python3 install.py
 ```
 
 To update an existing installation to a newer version, run
@@ -47,7 +47,7 @@ To update an existing installation to a newer version, run
 ```
 cd /path/to/emunittest
 git pull
-python install.py
+python install.py # or python3 install.py
 ```
 
 # Running
