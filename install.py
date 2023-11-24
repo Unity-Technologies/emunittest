@@ -213,7 +213,8 @@ def main():
     'viking_village',
     'viking_village_dev',
     'dragon_crashers',
-    'dragon_crashers_dev'
+    'dragon_crashers_dev',
+    'viking_village_runtimespeedlto_wasm2023_webgpu'
   ]
   for t in tests:
     # Remove old installed tests from root directory (if any existed using the old structure)
