@@ -659,7 +659,7 @@ class HTTPHandler(SimpleHTTPRequestHandler):
     fs = os.fstat(f.fileno())
     self.send_header("Content-Length", str(fs.st_size))
     self.send_header("Last-Modified", self.date_time_string(fs.st_mtime))
-    self.send_header('Cache-Control', 'no-cache, must-revalidate')
+    self.send_header('Cache-Control', 'no-cache, no-store, must-revalidate')
     self.send_header('Connection', 'close')
     self.send_header('Expires', '-1')
     self.send_header('Access-Control-Allow-Origin', '*')
@@ -710,7 +710,7 @@ class HTTPHandler(SimpleHTTPRequestHandler):
       data = {'system': system_info, 'browser': browser_info}
       self.send_response(200)
       self.send_header('Content-type', 'application/json')
-      self.send_header('Cache-Control', 'no-cache, must-revalidate')
+      self.send_header('Cache-Control', 'no-cache, no-store, must-revalidate')
       self.send_header('Connection', 'close')
       self.send_header('Expires', '-1')
       self.end_headers()
@@ -767,7 +767,7 @@ class HTTPHandler(SimpleHTTPRequestHandler):
 
     self.send_response(200)
     self.send_header('Content-type', 'text/plain')
-    self.send_header('Cache-Control', 'no-cache, must-revalidate')
+    self.send_header('Cache-Control', 'no-cache, no-store, must-revalidate')
     self.send_header('Connection', 'close')
     self.send_header('Expires', '-1')
     self.end_headers()
