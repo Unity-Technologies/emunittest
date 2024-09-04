@@ -464,7 +464,7 @@ function preloadXHR(url, responseType, onload, startupBlocker) {
   });
 }
 
-if (!emtimerOptions['providesRafIntegration'] || enableCpuProfiler) {
+if ((recordingInputStream || injectingInputStream) && !emtimerOptions['providesRafIntegration'] || enableCpuProfiler) {
   if (!window.realRequestAnimationFrame) {
     window.realRequestAnimationFrame = window.requestAnimationFrame;
     window.requestAnimationFrame = function(cb) {
