@@ -801,8 +801,9 @@ function findCanvas() {
 
 // eventType: "mousemove", "mousedown" or "mouseup".
 // x and y: Normalized coordinate in the range [0,1] where to inject the event.
+// mX and mY: mouse movement of X and Y coordinates
 // button: which button was clicked. 0 = mouse left button. If eventType="mousemove", pass 0.
-function simulateMouseEvent(eventType, x, y, button) {
+function simulateMouseEvent(eventType, x, y, mX, mY, button) {
   var canvas = findCanvas();
   // Remap from [0,1] to canvas CSS pixel size.
   x *= canvas.clientWidth;
@@ -811,11 +812,19 @@ function simulateMouseEvent(eventType, x, y, button) {
   // Offset the injected coordinate from top-left of the client area to the top-left of the canvas.
   x = Math.round(rect.left + x);
   y = Math.round(rect.top + y);
-  var e = document.createEvent("MouseEvents");
-  e.initMouseEvent(eventType, true, true, window,
-                   eventType == 'mousemove' ? 0 : 1, x, y, x, y,
-                   0, 0, 0, 0,
-                   button, null);
+
+  var e = new MouseEvent(eventType,{
+    view: window,
+    bubbles: true,
+    cancelable: true,
+    screenX: x,
+    screenY: y,
+    clientX: x,
+    clientY: y,
+    movementX: mX,
+    movementY: mY
+  });
+
   e.programmatic = true;
 
   // Dispatch to Emscripten's html5.h API:
@@ -1242,7 +1251,7 @@ function captureInputHandlers() {
 
   c.addEventListener("mousemove", function(e) {
     var pos = computeNormalizedCanvasPos(e);
-    recordedInputStream += 'if (referenceTestFrameNumber == ' + referenceTestFrameNumber + ') simulateMouseEvent("mousemove", '+ pos[0] + ', ' + pos[1] + ', 0);<br>';
+    recordedInputStream += 'if (referenceTestFrameNumber == ' + referenceTestFrameNumber + ') simulateMouseEvent("mousemove", '+ pos[0] + ', ' + pos[1] + ', ' + e.movementX + ', ' + e.movementY + ', 0);<br>';
     });
 
   c.addEventListener("wheel", function(e) {
